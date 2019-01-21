@@ -1,9 +1,10 @@
 {
-  "name": "please_work",
+  "name": "Captains_LogBook",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
+    "seed": "node script/seed.js",
     "start": "webpack-dev-server --progress --hot --open",
     "start-local": "webpack-dev-server --env.local --progress --hot --open"
   },
@@ -13,9 +14,22 @@
     "@babel/plugin-proposal-decorators": "^7.2.3",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "pg": "^7.8.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-map-gl": "^4.0.8"
+    "react-map-gl": "^4.0.8",
+    "react-redux": "^6.0.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sequelize": "^4.42.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -24,6 +38,7 @@
     "@babel/plugin-proposal-function-sent": "^7.2.0",
     "@babel/plugin-proposal-numeric-separator": "^7.2.0",
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",

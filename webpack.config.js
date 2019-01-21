@@ -18,7 +18,9 @@ const config = {
   },
 
   output: {
-    library: 'App'
+    path: __dirname,
+    filename: './dist/app.js',
+    // library: 'App'
   },
 
   module: {
