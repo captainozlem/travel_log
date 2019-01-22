@@ -19,7 +19,7 @@ const config = {
 
   output: {
     path: __dirname,
-    filename: './dist/app.js',
+    filename: './public/app.js',
     // library: 'App'
   },
 

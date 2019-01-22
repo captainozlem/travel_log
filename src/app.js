@@ -95,6 +95,8 @@ export default class App extends Component {
   }
 }
 
-export function renderToDom(container) {
+function renderToDom(container) {
   render(<App />, container);
 }
+
+renderToDom(document.getElementById('map'));

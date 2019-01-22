@@ -2,11 +2,13 @@
   "name": "Captains_LogBook",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
   "scripts": {
     "seed": "node script/seed.js",
-    "start": "webpack-dev-server --progress --hot --open",
-    "start-local": "webpack-dev-server --env.local --progress --hot --open"
+    "start": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
+    "start-local": "webpack-dev-server --env.local --progress --hot --open",
+    "build-client": "webpack",
+    "build-client-watch": "webpack -w",
+    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client"
   },
   "author": "Ozlem Niksch",
   "license": "ISC",
