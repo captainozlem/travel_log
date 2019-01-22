@@ -1,16 +1,18 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 
 export default class CityInfo extends PureComponent {
-
   render() {
-    const { info } = this.props;
-    const displayName = `${info.city}, ${info.state}`;
+    const {info} = this.props;
+    const displayName = `${info.country}`;
 
     return (
       <div>
         <div>
-          {displayName} | <a target="_new"
-            href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${displayName}`}>
+          {displayName} |{' '}
+          <a
+            target="_new"
+            href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${displayName}`}
+          >
             Wikipedia
           </a>
         </div>

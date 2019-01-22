@@ -5,9 +5,10 @@ import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
 
 import ControlPanel from './control-panel';
 import CityPin from './city-pin';
+//import CityInfo from './city-info';
+import Country from './country';
 import CityInfo from './city-info';
-
-import CITIES from './cities.json';
+// import CITIES from './cities.json';
 
 const TOKEN =
   'pk.eyJ1IjoiY2FwdGFpbm96bGVtIiwiYSI6ImNqb2c3bDEycjA2M3gza21nb3oxdDlsYWMifQ.MyssR7nhxDBnbkPzI0wGnA'; // Set your mapbox token here
@@ -24,8 +25,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       viewport: {
-        latitude: 37.785164,
-        longitude: -100,
+        lat: 37.785164,
+        lng: -100,
         zoom: 3.5,
         bearing: 0,
         pitch: 0
@@ -38,14 +39,13 @@ export default class App extends Component {
     this.setState({viewport});
   };
 
-  _renderCityMarker = (city, index) => {
+  _renderCityMarker = (country, index) => {
     return (
-      <Marker
-        key={`marker-${index}`}
-        longitude={city.longitude}
-        latitude={city.latitude}
-      >
-        <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
+      <Marker key={`marker-${index}`} lng={country.lng} lat={country.lat}>
+        <CityPin
+          size={20}
+          onClick={() => this.setState({popupInfo: country})}
+        />
       </Marker>
     );
   };
@@ -58,8 +58,8 @@ export default class App extends Component {
         <Popup
           tipSize={5}
           anchor="top"
-          longitude={popupInfo.longitude}
-          latitude={popupInfo.latitude}
+          lng={popupInfo.lng}
+          lat={popupInfo.lat}
           closeOnClick={false}
           onClose={() => this.setState({popupInfo: null})}
         >
@@ -71,7 +71,7 @@ export default class App extends Component {
 
   render() {
     const {viewport} = this.state;
-
+    console.log('can I see any country>>>>', this.state);
     return (
       <MapGL
         {...viewport}
@@ -81,7 +81,7 @@ export default class App extends Component {
         onViewportChange={this._updateViewport}
         mapboxApiAccessToken={TOKEN}
       >
-        {CITIES.map(this._renderCityMarker)}
+        {/* {Country.map(this._renderCityMarker)} */}
 
         {this._renderPopup()}
 
