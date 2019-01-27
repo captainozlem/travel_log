@@ -3,7 +3,7 @@ import React, {PureComponent} from 'react';
 export default class CityInfo extends PureComponent {
   render() {
     const {info} = this.props;
-    const displayName = `${info.country}`;
+    const displayName = `${info.city}`;
 
     return (
       <div>
@@ -16,7 +16,7 @@ export default class CityInfo extends PureComponent {
             Wikipedia
           </a>
         </div>
-        <img width={240} src={info.image} />
+
       </div>
     );
   }

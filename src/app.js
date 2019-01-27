@@ -2,13 +2,13 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
-
 import ControlPanel from './control-panel';
 import CityPin from './city-pin';
-//import CityInfo from './city-info';
-import Country from './country';
 import CityInfo from './city-info';
-// import CITIES from './cities.json';
+import Country from './country';
+import {Provider,connect} from 'react-redux';
+import store ,{fetchMarker} from './store';
+
 
 const TOKEN =
   'pk.eyJ1IjoiY2FwdGFpbm96bGVtIiwiYSI6ImNqb2c3bDEycjA2M3gza21nb3oxdDlsYWMifQ.MyssR7nhxDBnbkPzI0wGnA'; // Set your mapbox token here
@@ -20,13 +20,13 @@ const navStyle = {
   padding: '10px'
 };
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       viewport: {
-        lat: 37.785164,
-        lng: -100,
+        latitude: 37.785164,
+        longitude: -100,
         zoom: 3.5,
         bearing: 0,
         pitch: 0
@@ -35,22 +35,26 @@ export default class App extends Component {
     };
   }
 
-  _updateViewport = viewport => {
+  componentDidMount() {
+    this.props.markCity();
+  }
+
+  updateViewport = viewport => {
     this.setState({viewport});
   };
 
-  _renderCityMarker = (country, index) => {
+  renderCityMarker = (city, index) => {
     return (
-      <Marker key={`marker-${index}`} lng={country.lng} lat={country.lat}>
-        <CityPin
-          size={20}
-          onClick={() => this.setState({popupInfo: country})}
-        />
+      <Marker
+        key={`marker-${index}`}
+        longitude={city.longitude}
+        latitude={city.latitude} >
+        <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
       </Marker>
     );
-  };
+  }
 
-  _renderPopup() {
+  renderPopup() {
     const {popupInfo} = this.state;
 
     return (
@@ -58,8 +62,8 @@ export default class App extends Component {
         <Popup
           tipSize={5}
           anchor="top"
-          lng={popupInfo.lng}
-          lat={popupInfo.lat}
+          longitude={popupInfo.longitude}
+           latitude={popupInfo.latitude}
           closeOnClick={false}
           onClose={() => this.setState({popupInfo: null})}
         >
@@ -71,32 +75,47 @@ export default class App extends Component {
 
   render() {
     const {viewport} = this.state;
-    console.log('can I see any country>>>>', this.state);
+    const markedMap = this.props.markedMap || [];
+
     return (
       <MapGL
         {...viewport}
         width="100%"
         height="100%"
-        mapStyle="mapbox://styles/mapbox/dark-v9"
-        onViewportChange={this._updateViewport}
+        mapStyle="mapbox://styles/captainozlem/cjr5vfgyy1q3r2slmtl2877rz"
+        onViewportChange={this.updateViewport}
         mapboxApiAccessToken={TOKEN}
       >
-        {/* {Country.map(this._renderCityMarker)} */}
 
-        {this._renderPopup()}
+       {markedMap.map(this.renderCityMarker)}
+
+        {this.renderPopup()}
 
         <div className="nav" style={navStyle}>
-          <NavigationControl onViewportChange={this._updateViewport} />
+          <NavigationControl onViewportChange={this.updateViewport} />
         </div>
 
         <ControlPanel containerComponent={this.props.containerComponent} />
+
+        <Country formComponent ={this.props.formComponent} />
       </MapGL>
     );
   }
 }
 
-function renderToDom(container) {
-  render(<App />, container);
-}
 
-renderToDom(document.getElementById('map'));
+const mapState = state => {
+  return {
+    markedMap: state.map,
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    markCity: () => dispatch(fetchMarker())
+  };
+};
+
+export default connect(mapState,mapDispatch)(App);
+
+

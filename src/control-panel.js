@@ -1,6 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 
-const defaultContainer = ({ children }) => <div className="control-panel">{children}</div>;
+const defaultContainer = ({children}) => (
+  <div className="control-panel">{children}</div>
+);
 
 export default class ControlPanel extends PureComponent {
   render() {
@@ -8,12 +10,15 @@ export default class ControlPanel extends PureComponent {
 
     return (
       <Container>
-        <h3>Marker, Popup, and NavigationControl</h3>
-        <p>Map showing top 20 most populated cities of the United States. Click on a marker to learn more.</p>
-        <p>Data source: <a href="https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population">Wikipedia</a></p>
-        <div className="source-link">
-          <a href="https://github.com/uber/react-map-gl/tree/4.0-release/examples/controls" target="_new">View Code ↗</a>
-        </div>
+        <h3>My Log Book </h3>
+        <p>
+          This project intented to be a travel website that is using
+          MapboxGL,React and Redux, however it is still in progress...
+        </p>
+        <p>
+          For more adventures:{' '}
+          <a href="https://ucarikacari.com/">Ucari Kacari</a>
+        </p>
       </Container>
     );
   }

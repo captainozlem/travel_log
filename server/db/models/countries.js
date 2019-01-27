@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 const Countries = db.define('countries', {
-  name: {
+  city: {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false
@@ -11,11 +11,15 @@ const Countries = db.define('countries', {
     type: Sequelize.STRING,
     allowNull: false
   },
-  lng: {
+  country: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  longitude: {
     type: Sequelize.DECIMAL,
     allowNull: false
   },
-  lat: {
+  latitude: {
     type: Sequelize.DECIMAL,
     allowNull: false
   },
@@ -23,9 +27,6 @@ const Countries = db.define('countries', {
     type: Sequelize.TEXT,
     allowNull: false,
     defaultValue: 'It is a beautiful country with welcoming people'
-  },
-  image: {
-    type: Sequelize.TEXT
   }
 });
 

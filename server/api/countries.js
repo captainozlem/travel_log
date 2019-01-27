@@ -13,3 +13,21 @@ router.get('/', async (req, res, next) => {
     next(err);
   }
 });
+
+//POST /api/countries ==> adding new city
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newCity = await Countries.create({
+      city: req.body.city,
+      continent: req.body.continent,
+      country: req.body.country,
+      longitude: req.body.longitude,
+      latitude: req.body.latitude,
+      text: req.body.text
+    });
+    res.json(newCity);
+  } catch (err) {
+    next(err);
+  }
+});
