@@ -48,8 +48,8 @@ export class App extends Component {
     return (
       <Marker
         key={`marker-${index}`}
-        longitude={city.longitude}
-        latitude={city.latitude} >
+        longitude={Number(city.longitude)}
+        latitude={Number(city.latitude)} >
         <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
       </Marker>
     );
@@ -63,8 +63,8 @@ export class App extends Component {
         <Popup
           tipSize={5}
           anchor="top"
-          longitude={popupInfo.longitude}
-           latitude={popupInfo.latitude}
+          longitude={Number(popupInfo.longitude)}
+           latitude={Number(popupInfo.latitude)}
           closeOnClick={false}
           onClose={() => this.setState({popupInfo: null})}
         >
