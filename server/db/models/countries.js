@@ -27,6 +27,9 @@ const Countries = db.define('countries', {
     type: Sequelize.TEXT,
     allowNull: false,
     defaultValue: 'It is a beautiful country with welcoming people'
+  },
+  image:{
+    type: Sequelize.STRING
   }
 });
 

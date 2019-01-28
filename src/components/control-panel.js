@@ -10,7 +10,7 @@ export default class ControlPanel extends PureComponent {
 
     return (
       <Container>
-        <h3>My Log Book </h3>
+        <h3>Captain`s Log Book</h3>
         <p>
           This project intented to be a travel website that is using
           MapboxGL,React and Redux, however it is still in progress...

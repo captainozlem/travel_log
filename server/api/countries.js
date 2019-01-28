@@ -24,7 +24,8 @@ router.post('/', async (req, res, next) => {
       country: req.body.country,
       longitude: req.body.longitude,
       latitude: req.body.latitude,
-      text: req.body.text
+      text: req.body.text,
+      image: req.body.image
     });
     res.json(newCity);
   } catch (err) {

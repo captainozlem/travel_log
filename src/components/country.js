@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addMarker} from './store';
+import {addMarker} from '../store';
 
 class Country extends React.Component {
   constructor() {
@@ -11,8 +11,8 @@ class Country extends React.Component {
      country: '',
      longitude: 0.00,
      latitude: 0.00,
-     text: ''
-
+     text: '',
+     image: ''
     };
   }
   handleChange = event => {
@@ -26,7 +26,8 @@ class Country extends React.Component {
      country: '',
      longitude: 0.00,
      latitude:0.00,
-     text: ''});
+     text: '',
+     image:''});
   };
 
   render() {
@@ -39,6 +40,7 @@ class Country extends React.Component {
           <input name="longitude" type="text" onChange={this.handleChange} placeholder='Longitude'/>
           <input name="latitude" type="text" onChange={this.handleChange} placeholder='Latitude'/>
           <input name="text" type="text" onChange={this.handleChange} placeholder='Tell me about your trip'/>
+          <input name="image" type="text" onChange={this.handleChange} placeholder='Download your photo'/>
           <button type="submit">Mark your trips</button>
         </form>
       </div>

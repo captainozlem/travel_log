@@ -7,7 +7,8 @@ import CityPin from './city-pin';
 import CityInfo from './city-info';
 import Country from './country';
 import {Provider,connect} from 'react-redux';
-import store ,{fetchMarker} from './store';
+import store ,{fetchMarker} from '../store';
+
 
 
 const TOKEN =
@@ -20,13 +21,13 @@ const navStyle = {
   padding: '10px'
 };
 
-class App extends Component {
+export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       viewport: {
-        latitude: 37.785164,
-        longitude: -100,
+        latitude: 41.0082,
+        longitude: 28.9784,
         zoom: 3.5,
         bearing: 0,
         pitch: 0
