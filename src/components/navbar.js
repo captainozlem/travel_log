@@ -8,9 +8,18 @@ export const Navbar = () => {
         <i className="fas fa-bars" />
       </span> */}
 
-      <NavLink to="/"> Home </NavLink>
-      <NavLink to="/map"> Captain`s Map </NavLink>
-      <NavLink to="/photo"> Slide Show </NavLink>
+      <NavLink className="links" to="/">
+        {' '}
+        Home{' '}
+      </NavLink>
+      <NavLink className="links" to="/map">
+        {' '}
+        Captain`s Map{' '}
+      </NavLink>
+      <NavLink className="links" to="/photo">
+        {' '}
+        Slide Show{' '}
+      </NavLink>
     </nav>
   );
 };
