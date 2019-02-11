@@ -24,10 +24,10 @@ export const fetchMarker = () => async dispatch => {
 };
 
 export const addMarker = (newCity) => async dispatch => {
-  try{
+  try {
     const {data} = await axios.post('/api/countries',newCity);
     dispatch(addCity(data));
-  }catch(error){
+  } catch (error){
     console.log(error);
   }
 }

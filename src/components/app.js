@@ -1,13 +1,13 @@
 /* global window */
-import React, {Component} from 'react';
-import {render} from 'react-dom';
-import MapGL, {Marker, Popup, NavigationControl} from 'react-map-gl';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import MapGL, { Marker, Popup, NavigationControl } from 'react-map-gl';
 import ControlPanel from './control-panel';
 import CityPin from './city-pin';
 import CityInfo from './city-info';
 import Country from './country';
-import {Provider,connect} from 'react-redux';
-import store ,{fetchMarker} from '../store';
+import { Provider, connect } from 'react-redux';
+import store, { fetchMarker } from '../store';
 
 
 
@@ -41,7 +41,7 @@ export class App extends Component {
   }
 
   updateViewport = viewport => {
-    this.setState({viewport});
+    this.setState({ viewport });
   };
 
   renderCityMarker = (city, index) => {
@@ -50,13 +50,13 @@ export class App extends Component {
         key={`marker-${index}`}
         longitude={Number(city.longitude)}
         latitude={Number(city.latitude)} >
-        <CityPin size={20} onClick={() => this.setState({popupInfo: city})} />
+        <CityPin size={20} onClick={() => this.setState({ popupInfo: city })} />
       </Marker>
     );
   }
 
   renderPopup() {
-    const {popupInfo} = this.state;
+    const { popupInfo } = this.state;
 
     return (
       popupInfo && (
@@ -64,9 +64,9 @@ export class App extends Component {
           tipSize={5}
           anchor="top"
           longitude={Number(popupInfo.longitude)}
-           latitude={Number(popupInfo.latitude)}
+          latitude={Number(popupInfo.latitude)}
           closeOnClick={false}
-          onClose={() => this.setState({popupInfo: null})}
+          onClose={() => this.setState({ popupInfo: null })}
         >
           <CityInfo info={popupInfo} />
         </Popup>
@@ -75,7 +75,7 @@ export class App extends Component {
   }
 
   render() {
-    const {viewport} = this.state;
+    const { viewport } = this.state;
     const markedMap = this.props.markedMap || [];
 
     return (
@@ -88,7 +88,7 @@ export class App extends Component {
         mapboxApiAccessToken={TOKEN}
       >
 
-       {markedMap.map(this.renderCityMarker)}
+        {markedMap.map(this.renderCityMarker)}
 
         {this.renderPopup()}
 
@@ -98,7 +98,7 @@ export class App extends Component {
 
         <ControlPanel containerComponent={this.props.containerComponent} />
 
-        <Country formComponent ={this.props.formComponent} />
+        <Country formComponent={this.props.formComponent} />
       </MapGL>
     );
   }
@@ -117,6 +117,6 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(mapState,mapDispatch)(App);
+export default connect(mapState, mapDispatch)(App);
 
 

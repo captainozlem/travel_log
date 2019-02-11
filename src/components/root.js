@@ -1,30 +1,27 @@
 import React from 'react';
-import {Route, withRouter, Switch} from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 import App from './app';
-import {Navbar} from './navbar';
-import {connect} from 'react-redux';
-import {fetchMarker} from '../store/map';
-import {Home} from './home';
+import { Navbar } from './navbar';
+import { connect } from 'react-redux';
+import { fetchMarker } from '../store/map';
+import { Home } from './home';
 
 export class Root extends React.Component {
   componentDidMount() {
-      this.props.markCity();
+    this.props.markCity();
   }
   render() {
     return (
-      // <React.Fragment>
-      //   <App/>
-      <div style={{width:'100vw' , height:'100vh'}}>
-        <Navbar />
-         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/map" component={App} />
-          </Switch>
-        {/* <map>
 
-        </map> */}
+      <div style={{ width: '100vw', height: '100vh' }}>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/map" component={App} />
+        </Switch>
+
       </div>
-        //  </React.Fragment>
+
     );
   }
 }
