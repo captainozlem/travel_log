@@ -11,9 +11,8 @@ ReactDOM.render(
   <Provider store={store}>
     {/* <App/> */}
      <BrowserRouter>
-      <Root/>
-
-      </BrowserRouter>
+      <Root />
+     </BrowserRouter>
   </Provider>,
   document.getElementById('map')
 );
@@ -24,5 +23,3 @@ ReactDOM.render(
 //   </Provider>,
 //   document.getElementById('map')
 // );
-
-

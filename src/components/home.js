@@ -3,14 +3,27 @@ import React from 'react';
 export const Home = () => {
   return (
     <div className="home">
-      <div id="wrapper">
-        <h1>Captain`s Log Book</h1>
+      <div className="book">
+        <div className="back" />
+        <div className="page6" />
+        <div className="page5" />
+        <div className="page4" />
+        <div className="page3" />
+        <div className="page2" />
+        <div className="page1" />
+        <div className="front">Captain's Log Book</div>
       </div>
 
-      <img
-        className="homepic"
-        src="https://res.cloudinary.com/captainozlem/image/upload/v1549253540/DSC09194.jpg"
-      />
+      <div className="book">
+        <div className="back" />
+        <div className="page6" />
+        <div className="page5" />
+        <div className="page4" />
+        <div className="page3" />
+        <div className="page2" />
+        <div className="page1" />
+        <div className="front">Ucarı & Kacarı </div>
+      </div>
     </div>
   );
 };

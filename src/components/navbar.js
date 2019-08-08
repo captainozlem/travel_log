@@ -16,7 +16,7 @@ export const Navbar = () => {
         {' '}
         Captain`s Map{' '}
       </NavLink>
-      <NavLink className="links" to="/photo">
+      <NavLink className="links" to="/pop">
         {' '}
         Slide Show{' '}
       </NavLink>
