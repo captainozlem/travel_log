@@ -3,8 +3,9 @@
   background: #000;
 } */
 
-body, html {
-  background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed;
+body {
+  /* background: url('https://source.unsplash.com/twukN12EN7c/1920x1080') no-repeat center center fixed; */
+  background: #000 no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -13,7 +14,7 @@ body, html {
 
 .home {
   /* The image used */
-  background-image: url("https://res.cloudinary.com/captainozlem/image/upload/v1549253540/DSC09194.jpg");
+  background: url("https://res.cloudinary.com/captainozlem/image/upload/v1549253540/DSC09194.jpg") no-repeat center center fixed;
 
   /* Full height */
   height: 100%;
@@ -71,6 +72,30 @@ body, html {
   backface-visibility: visible;
 }
 
+.captains_logbook{
+  top: 25%;
+  left: 20%;
+}
+
+.ucarikacari{
+  bottom: 12.5%;
+  left: 65%;
+}
+
+.captains_logbook_front, .captains_book_back {
+  background: linear-gradient(35deg,#ABEBC6, #3498DB );
+  border-bottom-right-radius: .5em;
+  border-top-right-radius: .5em;
+}
+
+.ucarikacari_front , .ucarikacari_back {
+  background: linear-gradient(35deg, #CCFFFF,#FFCCCC );
+  border-bottom-right-radius: .5em;
+  border-top-right-radius: .5em;
+  text-align: center;
+  font-size: 48px;
+  font-family: Copperplate / Copperplate Gothic Light, sans-serif;
+}
 
 .front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
   transform-style: preserve-3d;
@@ -82,16 +107,13 @@ body, html {
   transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
 }
 
-.front, .back {
-  background: lightseagreen;
-}
 
-.front, .page1, .page3, .page5 {
+.page1, .page3, .page5 {
   border-bottom-right-radius: .5em;
   border-top-right-radius: .5em;
 }
 
-.back, .page2, .page4, .page6 {
+.page2, .page4, .page6 {
   border-bottom-right-radius: .5em;
   border-top-right-radius: .5em;
 }
